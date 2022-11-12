@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="logger-util",
     packages=setuptools.find_packages(),
-    version="0.0.1",
+    version="0.0.3",
     description="Library for a fast logger implementation.",
     author="Carlos A. Martínez Jiménez",
     author_email="carloxdev@gmail.com",
