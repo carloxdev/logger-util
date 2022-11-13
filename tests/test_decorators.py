@@ -7,7 +7,7 @@ from unittest import TestCase
 # Own's Libraries
 from logger_util.log_admin import LogAdmin
 from logger_util.decorators import log
-from logger_util.log_admin import LogEnvironment
+from logger_util.log_admin import LogEnv
 
 
 @log()
@@ -52,39 +52,39 @@ class ExampleObject:
 class StepFunctionTest(TestCase):
 
     def test_Given_RequiredParams_When_EnvironmentIsProduction_Then_DontShowLogs(self):
-        LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "test1")
+        LogAdmin.create_Logger(LogEnv.PRODUCTION, "test1")
         example_Function("cadenita")
 
     def test_Given_RequiredAndTimestampParams_When_EnvironmentIsProductionAndTimestampIsFalse_Then_DontShowLogs(self):
-        LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "test2", False)
+        LogAdmin.create_Logger(LogEnv.PRODUCTION, "test2", False)
         example_Function(12)
 
     def test_Given_RequiredAndTimestampParams_When_EnvironmentIsProductionAndTimestampIsTrue_Then_DontShowLogs(self):
-        LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "test2", True)
+        LogAdmin.create_Logger(LogEnv.PRODUCTION, "test2", True)
         example_Function(12)
 
     def test_Given_RequiredParams_When_EnvironmentIsDevelopment_Then_ShowLogsWithoutTimestamp(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test1")
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test1")
         example_Function("cadenita")
 
     def test_Given_RequiredAndTimestapParams_When_EnvironmentIsDevelopmentAndTimestampIsFalse_Then_ShowLogsWithoutTimestamp(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test2", False)
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test2", False)
         example_Function(23)
 
     def test_Given_RequiredAndTimestapParams_When_EnvironmentIsDevelopmentAndTimestampIsTrue_Then_ShowLogsWithTimestamp(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test2", True)
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test2", True)
         example_Function(23)
 
     def test_Given_RequiredParams_When_EnvironmentIsDevelopAndFunctionHasLevel_Then_ShowLogsWithoutTimestampAndLevelDots(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test1")
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test1")
         example_FunctionWithLevel("cadenita")
 
     def test_Given_RequiredParams_When_EnvironmentIsDevelopAndFunctionHasSublevel_Then_ShowLogsWithoutTimestampAndSublevelDots(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test1")
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test1")
         example_FunctionWithSublevel("cadenita", "martillo")
 
     def test_Given_RequiredParams_When_EnvironmentIsProductionAndFunctionHasSublevelAndFail_Then_ShowLogsWithoutTimestampAndSublevelDots(self):
-        LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "test1")
+        LogAdmin.create_Logger(LogEnv.PRODUCTION, "test1")
         with self.assertRaises(NameError):
             example_FunctionWithError("cadenita")
 
@@ -92,7 +92,7 @@ class StepFunctionTest(TestCase):
 class StepClassTest(TestCase):
 
     def test_Given_RequiredParams_When_EnvironmentIsDevelopment_Then_ShowLogs(self):
-        LogAdmin.create_Logger(LogEnvironment.DEVELOPMENT, "test")
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test")
         example_obj = ExampleObject()
         var1 = "Parametro 1"
         var2 = "Parametro 2"

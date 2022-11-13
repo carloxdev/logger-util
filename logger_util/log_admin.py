@@ -6,21 +6,21 @@ from enum import Enum
 loggers = {}
 
 
-class LogEnvironment(Enum):
+class LogEnv(Enum):
     PRODUCTION = "PRODUCTION"
     DEVELOPMENT = "DEVELOPMENT"
     TEST = "TEST"
 
     @staticmethod
     def list():
-        return list(map(lambda item: item.value, LogEnvironment))
+        return list(map(lambda item: item.value, LogEnv))
 
 
 class LogAdmin(object):
 
     @classmethod
     def __get_Level(self, _environment):
-        if _environment == LogEnvironment.PRODUCTION:
+        if _environment == LogEnv.PRODUCTION:
             return logging.INFO
 
         return logging.DEBUG
@@ -35,7 +35,7 @@ class LogAdmin(object):
     @classmethod
     def create_Logger(
         self,
-        _environment=LogEnvironment.DEVELOPMENT,
+        _environment=LogEnv.DEVELOPMENT,
         _name="app",
         _timestamp=False
     ):
