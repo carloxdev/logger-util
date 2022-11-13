@@ -5,9 +5,9 @@ import logging
 from unittest import TestCase
 
 # Own's Libraries
-from logger_util.log_admin import LogAdmin
-from logger_util.decorators import log
-from logger_util.log_admin import LogEnv
+from stx_logger_util.log_admin import LogAdmin
+from stx_logger_util.decorators import log
+from stx_logger_util.log_admin import LogEnv
 
 
 @log()

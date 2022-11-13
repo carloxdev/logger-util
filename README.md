@@ -1,4 +1,4 @@
-# LoggerUtil
+# StxLoggerUtil
 
 Library for a faster logger implementation
 
@@ -10,15 +10,15 @@ Library for a faster logger implementation
 
 You can install the library with the following command:
 
-    $ pip install logger-util
+    $ pip install stx-logger-util
 
 Create a logger:
 
-    from logger_util.log_admin import LogEnvironment
-    from logger_util.log_admin import LogAdmin
+    from stx_logger_util.log_admin import LogEnv
+    from stx_logger_util.log_admin import LogAdmin
 
-    logger = LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "app")
+    logger = LogAdmin.create_Logger(LogEnv.PRODUCTION, "app")
 
 By default the entry log will show the timestamp. If you don't need it just set in false the variable "_timestamp":
 
-    logger = LogAdmin.create_Logger(LogEnvironment.PRODUCTION, "app", _timestamp=False)
+    logger = LogAdmin.create_Logger(LogEnv.PRODUCTION, "app", _timestamp=False)

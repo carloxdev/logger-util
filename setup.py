@@ -4,9 +4,9 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="logger-util",
+    name="stx-logger-util",
     packages=setuptools.find_packages(),
-    version="0.0.4",
+    version="0.0.5",
     description="Library for a fast logger implementation.",
     author="Carlos A. Martínez Jiménez",
     author_email="carloxdev@gmail.com",
