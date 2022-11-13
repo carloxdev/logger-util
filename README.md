@@ -12,7 +12,7 @@ You can install the library with the following command:
 
     $ pip install logger-util
 
-For create a logger:
+Create a logger:
 
     from logger_util.log_admin import LogEnvironment
     from logger_util.log_admin import LogAdmin
