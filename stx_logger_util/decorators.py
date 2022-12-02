@@ -29,11 +29,11 @@ def log(_level=1):
             logging.debug(LogMessage.get_Start(_level, args, function_path, function_type))
             try:
                 response = func(*args, **kwargs)
-                logging.debug(LogMessage.get_End(_level, "Success", function_path))
+                logging.debug(LogMessage.get_End(_level, response, "Success", function_path))
                 return response
 
             except Exception as e:
-                logging.error(LogMessage.get_End(_level, str(e), function_path))
+                logging.error(LogMessage.get_End(_level, str(e), "Fail", function_path))
                 raise e
 
         return wrapper

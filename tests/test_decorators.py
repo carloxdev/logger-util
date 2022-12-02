@@ -48,6 +48,10 @@ class ExampleObject:
     def get_TestData(self, _param1, _param2):
         return "ok"
 
+    @log()
+    def get_TestData2(self, _param1, _param):
+        raise NameError("Example Error")
+
 
 class StepFunctionTest(TestCase):
 
@@ -97,3 +101,11 @@ class StepClassTest(TestCase):
         var1 = "Parametro 1"
         var2 = "Parametro 2"
         example_obj.get_TestData(var1, var2)
+
+    def test_Given_RequiredParams_When_MethodRaiseError_Then_ShowLogs(self):
+        LogAdmin.create_Logger(LogEnv.DEVELOPMENT, "test")
+        example_object = ExampleObject()
+        var1 = "Parametro 1"
+        var2 = "Parametro 2"
+        with self.assertRaises(NameError):
+            example_object.get_TestData2(var1, var2)

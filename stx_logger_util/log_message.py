@@ -76,6 +76,6 @@ class LogMessage(object):
         return message
 
     @classmethod
-    def get_End(self, _level, _result, _func_path):
-        pre_message = f"{_func_path}: {_result}"
+    def get_End(self, _level, _result, _status, _func_path):
+        pre_message = f"{_func_path} -> {_result} ... {_status}"
         return self.__get_Message(pre_message, _level)
